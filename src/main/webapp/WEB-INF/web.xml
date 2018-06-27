@@ -1,0 +1,91 @@
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+                      http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
+
+    <display-name>A Demo Servlet 3.1 Web Application</display-name>
+
+    <context-param>
+        <param-name>testServletContextParam</param-name>
+        <param-value>This is a servlet context param</param-value>
+    </context-param>
+
+
+    <servlet>
+        <servlet-name>ServletClass</servlet-name>
+        <servlet-class>com.higgsup.intern.servlet.simpleservlet.ServletClass</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>HelloWorldServlet</servlet-name>
+        <servlet-class>com.higgsup.intern.servlet.simpleservlet.XMLHelloServlet</servlet-class>
+
+        <init-param>
+            <param-name>testServletInitParam</param-name>
+            <param-value>This is a servlet init param</param-value>
+        </init-param>
+
+        <!--<load-on-startup>1</load-on-startup>-->
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>HelloWorldServlet</servlet-name>
+        <url-pattern>/xml/say-hello</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>ServletClass</servlet-name>
+        <url-pattern>/hello</url-pattern>
+    </servlet-mapping>
+
+
+    Filter
+
+    <filter>
+        <filter-name>servletFilter</filter-name>
+        <filter-class>com.higgsup.intern.servlet.filter.ServletFilter</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>servletFilter</filter-name>
+        <servlet-name>ServletClass</servlet-name>
+        <!--<url-pattern>/</url-pattern>-->
+    </filter-mapping>
+
+     <!--<filter>-->
+        <!--<filter-name>statisticFilter</filter-name>-->
+        <!--<filter-class>com.higgsup.intern.servlet.filter.StatisticFilter</filter-class>-->
+    <!--</filter>-->
+
+    <!--<filter-mapping>-->
+        <!--<filter-name>statisticFilter</filter-name>-->
+        <!--<servlet-name>ServletClass</servlet-name>-->
+    <!--</filter-mapping>-->
+
+
+    <!--Listener-->
+
+    <!--<listener>-->
+        <!--<description>This is MyListener</description>-->
+        <!--<listener-class>com.higgsup.intern.servlet.listener.MyServletContextListener</listener-class>-->
+    <!--</listener>-->
+    <!--<listener>-->
+        <!--<description>This is MyServletRequestListener</description>-->
+        <!--<listener-class>com.higgsup.intern.servlet.listener.MyServletRequestListener</listener-class>-->
+    <!--</listener>-->
+
+    <!--<context-param>-->
+        <!--<param-name>DB_USER</param-name>-->
+        <!--<param-value>quytm</param-value>-->
+    <!--</context-param>-->
+    <!--<context-param>-->
+        <!--<param-name>DB_PASSWORD</param-name>-->
+        <!--<param-value>1234</param-value>-->
+    <!--</context-param>-->
+    <!--<context-param>-->
+        <!--<param-name>DB_URL</param-name>-->
+        <!--<param-value>jdbc:mysql://localhost/mysql_db</param-value>-->
+    <!--</context-param>-->
+
+</web-app>
